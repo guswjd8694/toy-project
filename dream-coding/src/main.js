@@ -4,6 +4,7 @@
 // 4. 인풋 초기화
 
 'use strict';
+import Field from "./field.js";
 
 const title = document.querySelector('h2');
 const input = document.querySelector('.input');
@@ -12,13 +13,10 @@ const submitBtn = document.querySelector('.submit');
 const shooting = document.querySelector('.shooting');
 const shootingTitle = document.querySelector('.game-main');
 const aim = document.querySelector('.aim');
-const field = document.querySelector('.field');
-const fieldRect = field.getBoundingClientRect();
 
 const popUp = document.querySelector('.pop-up');
 const popUpText = document.querySelector('.pop-up__msg');
 
-const DOG_SIZE = 65;
 const DOG_COUNT = 5;
 const BUG_COUNT = 7;
 const GAME_SEC = 5;
@@ -32,6 +30,28 @@ const scoreText = '<img src="/img/mosquito.png" alt="mosquito" class="scoreBug">
 let started = false;
 let score = 0;
 let timer = undefined;
+
+const gameField = new Field(DOG_COUNT, BUG_COUNT);
+gameField.setClickListener(onItemClick);
+
+function onItemClick(item){
+    if(!started){
+        return;
+    }
+    if (item === 'mosquito'){
+        score++;
+        updateScoreBoard();
+
+        if(score === BUG_COUNT){
+            finishGame(true);
+        }
+    } else if (item === '.corgi'){
+        stopGameTimer();
+        finishGame(false);
+    }
+}
+
+
 
 function onSubmit(){
     const text = input.value;
@@ -79,8 +99,6 @@ resetBtn.addEventListener('click', () => {
     stopGame();
     gameBtn.addEventListener('click', gameStartBtn);
 });
-
-field.addEventListener('click', onFieldClick);
 
 
 function startGame(){
@@ -135,32 +153,11 @@ function hidePopUp(){
 };
 
 function initGame(){
-    field.innerHTML = '';
     gameScore.innerHTML = scoreText + `${BUG_COUNT}`;
-    addItem('corgi', 5, '/img/corgi.png')
-    addItem('mosquito', 7, '/img/mosquito.png')
+    gameField.init();
 }
 
 
-function onFieldClick(e){
-    if(!started){
-        return;
-    }
-
-    const target = e.target;
-    if (target.matches('.mosquito')){
-        target.remove();
-        score++;
-        updateScoreBoard();
-
-        if(score === BUG_COUNT){
-            finishGame(true);
-        }
-    } else if (target.matches('.corgi')){
-        stopGameTimer();
-        finishGame(false);
-    }
-}
 
 function finishGame(win){
     started = false;
@@ -169,29 +166,4 @@ function finishGame(win){
 
 function updateScoreBoard(){
     gameScore.innerHTML = scoreText + `${BUG_COUNT - score}`;
-}
-
-function addItem(className, count, imgPath){
-    const x1= 0;
-    const y1 = 0;
-
-    const x2 = fieldRect.width - DOG_SIZE;
-    const y2 = fieldRect.height - DOG_SIZE;
-
-    for(let i = 0; i < count; i++){
-        const item = document.createElement('img');
-        item.setAttribute('class', className);
-        item.setAttribute('src', imgPath);
-        item.style.position = 'absolute';
-
-        const x = randomNumber(x1, x2);
-        const y = randomNumber(y1, y2);
-        item.style.left = `${x}px`;
-        item.style.top = `${y}px`;
-        field.appendChild(item);
-    }
-}
-
-function randomNumber(min, max){
-    return Math.random() * (max - min) + min;
 }
