@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <section class="top">
+            <h2>GAME BOX</h2>
+            <div class="screen-wrap">
+                <div class="screen">
+                    <div class="game-main">
+                        <h2 class="game-title">Kill Mosquito Game 🏹</h2>
+                        <p class="game-ment">Press The Start Button</p>
+                    </div>
+                    <!-- <div class="aim">
+                        <img src="/img/aim.png" alt="aim">
+                    </div> -->
+                    <article class="shooting">
+                        <div class="timer">00:00</div>
+                        <div class="score"></div>
+                        <div class="field"></div>
+                        <div class="pop-up pop-up--hide">
+                            <button class="pop-up__replay">🔄</button>
+                            <span class="pop-up__msg"></span>
+                        </div>
+                    </article>
+                </div>
+                <form class="submit">
+                    <input type="text" class="input">
+                    <button type="submit" class="submitBtn">입력</button>
+                </form>
+            </div>
+        </section>
+        <section class="bottom">
+            <div class="btn01">
+                <img src="/img/btn.png" alt="btn">
+            </div>
+            <div class="btn02">
+                <div class="btn02Wrap">
+                    <button type="button" class="centerBtn startBtn"></button>
+                    <span class="start">start</span>
+                </div>
+                <div>
+                    <button type="button" class="centerBtn resetBtn"></button>
+                    <span class="reset">reset</span>
+                </div>
+            </div>
+            <div class="btn03">
+                <div>
+                    <button type="button" class="rightBtn green">1</button>
+                    <button type="button" class="rightBtn blue">3</button>
+                </div>
+                <div">
+                    <button type="button" class="rightBtn yell">2</button>
+                    <button type="button" class="rightBtn red">4</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="main.js" defer></script>
+</html>
