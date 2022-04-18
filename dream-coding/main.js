@@ -17,7 +17,6 @@ const fieldRect = field.getBoundingClientRect();
 
 const popUp = document.querySelector('.pop-up');
 const popUpText = document.querySelector('.pop-up__msg');
-const popUpRefresh = document.querySelector('.pop-up__replay');
 
 const DOG_SIZE = 65;
 const DOG_COUNT = 5;
@@ -64,26 +63,25 @@ submitBtn.addEventListener('submit', (e) => {
 //     aim.style.left = `${x}px`;
 // });
 
-gameBtn.addEventListener('click', () => {
+const gameStartBtn = () => {
     if(started = true){
         startGame();
+        gameBtn.removeEventListener('click', gameStartBtn);
     }
     shootingTitle.style.visibility = 'hidden';
-});
+}
 
+gameBtn.addEventListener('click', gameStartBtn);
 
 resetBtn.addEventListener('click', () => {
     popUp.classList.add('pop-up--hide')
     shootingTitle.style.visibility = 'visible';
     stopGame();
+    gameBtn.addEventListener('click', gameStartBtn);
 });
 
 field.addEventListener('click', onFieldClick);
 
-popUpRefresh.addEventListener('click', () => {
-    startGame();
-    hidePopUp();
-});
 
 function startGame(){
     started = true;
@@ -143,8 +141,8 @@ function initGame(){
     addItem('mosquito', 7, '/img/mosquito.png')
 }
 
+
 function onFieldClick(e){
-    console.log(e)
     if(!started){
         return;
     }
@@ -166,7 +164,7 @@ function onFieldClick(e){
 
 function finishGame(win){
     started = false;
-    showStartPopUp(win ? 'YOU WON' : 'YOU LOST')
+    showStartPopUp(win ? 'YOU WON 🥳' : 'YOU LOST 😱')
 }
 
 function updateScoreBoard(){
