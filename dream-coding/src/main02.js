@@ -191,3 +191,7 @@ function addItem(className, count, imgPath){
         field.appendChild(item);
     }
 }
+
+function randomNumber(min, max){
+    return Math.random() * (max - min) + min;
+}
