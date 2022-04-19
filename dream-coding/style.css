@@ -161,8 +161,17 @@ h2 {
     width: 40px;
 }
 
+.mosquito:hover {
+    transform:scale(1.2);
+}
+
+
 .corgi {
     width: 70px;
+}
+
+.corgi:hover {
+    transform:scale(1.2);
 }
 
 .submit {
