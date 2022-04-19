@@ -44,9 +44,6 @@ function changeTitle(){
     }
 };
 
-// 입력값이 대문자로 나오게
-
-
 
 function onSubmit(){
     const inputText = titleInput.value;
