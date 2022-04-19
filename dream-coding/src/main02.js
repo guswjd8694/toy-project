@@ -33,19 +33,34 @@ let started = false;
 let score = 0;
 let timer = undefined;
 
+
+function changeTitle(){
+    title.innerText = sessionStorage.getItem('title');
+    console.log(title.innerText)
+
+    const changeUpper = sessionStorage.getItem('title');
+    changeUpper.toUpperCase();
+
+    if(title.innerText === ''){
+        title.innerText = 'GAME BOX'
+    }
+};
+
+// 입력값이 대문자로 나오게
+
+
+
 function onSubmit(){
     const text = input.value;
-    console.log(text);
-
-    const newTitle = createTitle(text);
-    title.appendChild(newTitle)
+    sessionStorage.setItem('title', text);
+    changeTitle();
+    return false;
 
 };
 
-function createTitle(text){
-    title.innerText = text;
-};
-
+window.addEventListener('DOMContentLoaded', () => {
+    changeTitle();
+});
 
 submitBtn.addEventListener('submit', (e) => {
     e.preventDefault();
