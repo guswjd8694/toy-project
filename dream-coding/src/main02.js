@@ -5,8 +5,8 @@
 
 'use strict';
 
-const title = document.querySelector('h2');
-const input = document.querySelector('.input');
+const gameTitle = document.querySelector('h2');
+const titleInput = document.querySelector('.input');
 const submitBtn = document.querySelector('.submit');
 
 const shooting = document.querySelector('.shooting');
@@ -35,14 +35,12 @@ let timer = undefined;
 
 
 function changeTitle(){
-    title.innerText = sessionStorage.getItem('title');
-    console.log(title.innerText)
+    gameTitle.innerText = sessionStorage.getItem('title').toUpperCase();
 
-    const changeUpper = sessionStorage.getItem('title');
-    changeUpper.toUpperCase();
+    console.log((gameTitle.innerText))
 
-    if(title.innerText === ''){
-        title.innerText = 'GAME BOX'
+    if(gameTitle.innerText === ''){
+        gameTitle.innerText = 'GAME BOX'
     }
 };
 
@@ -51,11 +49,9 @@ function changeTitle(){
 
 
 function onSubmit(){
-    const text = input.value;
-    sessionStorage.setItem('title', text);
+    const inputText = titleInput.value;
+    sessionStorage.setItem('title', inputText);
     changeTitle();
-    return false;
-
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -65,8 +61,8 @@ window.addEventListener('DOMContentLoaded', () => {
 submitBtn.addEventListener('submit', (e) => {
     e.preventDefault();
     onSubmit();
-    input.value=''
-    input.focus();
+    titleInput.value=''
+    titleInput.focus();
 
 });
 
