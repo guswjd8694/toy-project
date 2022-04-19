@@ -78,6 +78,7 @@ resetBtn.addEventListener('click', () => {
     shootingTitle.style.visibility = 'visible';
     stopGame();
     gameBtn.addEventListener('click', gameStartBtn);
+    location.reload();
 });
 
 field.addEventListener('click', onFieldClick);
