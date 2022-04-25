@@ -727,7 +727,7 @@ width: 130px;}
 .address {
     font-style: normal;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 20px;
     position: relative;
 }
@@ -757,11 +757,11 @@ width: 130px;}
     display: flex;
     align-items: center;
     line-height: 25px;
-}
+font-weight: 500;}
 
 .outback__ask .tel {
     color: #aaa;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 19px;
     padding: 0 5px;
 }
@@ -791,11 +791,11 @@ width: 130px;}
 
 .quick-menu__item a {
     color: #aaa;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .quick-menu__item.bold a {
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .sns {
