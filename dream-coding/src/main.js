@@ -167,3 +167,4 @@ function finishGame(win){
 function updateScoreBoard(){
     gameScore.innerHTML = scoreText + `${BUG_COUNT - score}`;
 }
+

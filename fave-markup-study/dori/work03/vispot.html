@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vispot</title>
+</head>
+<body>
+    <header>
+        <h2>메뉴</h2>
+        <a href="#">vispot</a>
+        <nav>
+            <h2>top nav</h2>
+            <ul>
+                <li>
+                    <select name="make" id="make-select">
+                        <option value="video">비디오 만들기</option>
+                    </select>
+                </li>
+                <li>
+                    광고 캠페인 만들기
+                </li>
+                <li>
+                    <a href="#">마이페이지</a>
+                    <select name="info" id="info-select">
+                        <option value="me">최유선님</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>본문</h2>
+        <nav>
+            <h2>광고 캠페인명</h2>
+            <form action="submit">
+                <input type="text">
+            </form>
+            <ol>
+                <li>광고</li>
+                <li>기간, 예산, 티켓</li>
+                <li>결제</li>
+            </ol>
+        </nav>
+
+        <section>
+            <h2>기간</h2>
+            <ul>
+                <li>
+                    <span>광고 시작일</span>
+                    <input type="date">
+                </li>
+                <li>
+                    <span>광고 종료일</span>
+                    <input type="date">
+                </li>
+            </ul>
+            <form action="submit">
+                <input type="radio" name="date">7일
+                <input type="radio" name="date">14일
+                <input type="radio" name="date">28일
+                <input type="radio" name="date">종료일 미지정
+            </form>
+            <small>광고 승인 기간에 따라 시작일이 변경될 수 있습니다.</small>
+        </section>
+
+        <section>
+            <h2>예산</h2>
+
+            <select name="money" id="money-select">
+                <option value="day">1일 예산</option>
+            </select>
+            <form action="submit">
+                <input type="radio" name="budget">10만원
+                <input type="radio" name="budget">20만원
+                <input type="radio" name="budget">30만원
+                <input type="radio" name="budget"><input type="text" placeholder="직접 입력하기">
+            </form>
+
+            <h3>(선택) 매체별 예산 설정</h3>
+            <ul>
+                <li>
+                    <span>Facebook</span>
+                    <input type="text" placeholder="예산을 입력해주세요">만원
+                </li>
+                <li>
+                    <span>Instagram</span>
+                    <input type="text" placeholder="예산을 입력해주세요">만원
+                </li>
+                <li>
+                    <span>YouTube</span>
+                    <input type="text" placeholder="예산을 입력해주세요">만원
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>타겟</h2>
+            <button type="button">더보기</button>
+            <small>설정하지 않아도 집행결과에 따라 적합한 타겟이 자동으로 적용됩니다.</small>
+            <button type="button">이전 타겟 정보 불러오기</button>
+
+            <ul>
+                <li>
+                    <h3>성별을 선택하세요.</h3>
+                    <form action="submit">
+                        <input type="checkbox">남자
+                        <input type="checkbox">여자
+                    </form>
+                </li>
+            
+                <li>
+                    <h3>연령을 선택하세요.</h3>
+                    <form action="submit">
+                        <input type="checkbox">18-24세
+                        <input type="checkbox">25-34세
+                        <input type="checkbox">35-44세
+                        <input type="checkbox">45-54세
+                        <input type="checkbox">55-64세
+                        <input type="checkbox">65세 이상
+                    </form>
+                </li>
+
+                <li>
+                    <h3>지역을 선택하세요</h3>
+                    <input list="contry" placeholder="선택하고 싶은 지역을 검색하세요.">
+                    <datalist id="contry">
+                        <option value="대한민국"></option>
+                        <option value="필리핀"></option>
+                        <option value="미국"></option>
+                    </datalist>
+                    <span>대한민국<button type="button">닫기</button></span>
+                </li>
+
+                <li>
+                    <h3>관심분야를 선택하세요</h3>
+                    <input list="like" type="text" placeholder="관심 분야를 검색하세요.">
+                    <datalist id="like">
+                        <option value="인구 통계 > 산업"></option>
+                        <option value="컴퓨터 및 수학"></option>
+                        <option value="컴퓨터 및 엔지어링"></option>
+                        <option value="IT 및 기술 서비스"></option>
+                    </datalist>
+                    <ul>
+                        <li><a href="#">인구 통계 > 산업</a></li>
+                        <li><a href="#">컴퓨터 및 수학</a></li>
+                        <li><a href="#">컴퓨터 및 엔지어링</a></li>
+                        <li><a href="#">IT 및 기술 서비스</a></li>
+                        <li><a href="#">IT 및 기술 서비스</a></li>
+                    </ul>
+                    <span>선택한 관심분야가 없습니다. 관심분야를 선택하지 않으면 모든 분야에 노출됩니다.</span>
+                    <span>컴퓨터<button type="button">닫기</button></span>
+                </li>
+
+                <li>
+                    <h3>노출 기기를 선택하세요</h3>
+                    <form action="submit">
+                        <input type="checkbox"> Desktop
+                        <input type="checkbox"> Android Mobile
+                        <input type="checkbox"> iOS Mobile
+                    </form>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <h2>이전단계 다음단계 버튼</h2>
+        <ul>
+            <li>
+                <button type="button">이전 단계</button>
+            </li>
+            <li>
+                <button type="button">다음 단계</button>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
