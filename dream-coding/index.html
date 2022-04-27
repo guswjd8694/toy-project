@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="src/main02.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./src/main02.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -14,22 +14,47 @@
             <h2>GAME BOX</h2>
             <div class="screen-wrap">
                 <div class="screen">
-                    <div class="game-main">
-                        <h2 class="game-title">Kill Mosquito Game 🏹</h2>
-                        <p class="game-ment">Press The Start Button</p>
-                    </div>
-                    <!-- <div class="aim">
-                        <img src="/img/aim.png" alt="aim">
-                    </div> -->
-                    <article class="shooting">
-                        <div class="timer">00:00</div>
-                        <div class="score"></div>
-                        <div class="field"></div>
-                        <div class="pop-up pop-up--hide">
-                            <span class="pop-up__msg">
-                            </span>
-                        </div>
-                    </article>
+                    <ul class="game-list">
+                        <li class="game-list__item killing">
+                            <div class="game-main">
+                                <h2 class="game-title">Kill Mosquito Game 🏹</h2>
+                                <p class="game-ment">Press The Start Button</p>
+                            </div>
+                            <!-- <div class="aim">
+                                <img src="/img/aim.png" alt="aim">
+                            </div> -->
+                            <article class="shooting">
+                                <div class="timer">00:00</div>
+                                <div class="score"></div>
+                                <div class="field"></div>
+                                <div class="pop-up pop-up--hide">
+                                    <span class="pop-up__msg">
+                                    </span>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="game-list__item styling">
+                            <div class="game-main">
+                                <h2 class="game-title">2번 옷 입히기 게임 👗</h2>
+                                <p class="game-ment">Press The Start Button</p>
+                            </div>
+                        </li>
+                        <li class="game-list__item crab">
+                            <div class="game-main">
+                                <h2 class="game-title">3번 맛있는 간장게장 🦀</h2>
+                                <p class="game-ment">Press The Start Button</p>
+                            </div>
+                        </li>
+                        <li class="game-list__item pig">
+                            <div class="game-main">
+                                <h2 class="game-title">4번 삼겹살 먹고싶다</h2>
+                                <p class="game-ment">Press The Start Button</p>
+                            </div>
+                        </li>
+                    </ul>
+
+
+
                 </div>
                 <form class="submit">
                     <input type="text" class="input" placeholder="게임기 이름을 설정해봐용가리🦖">
@@ -40,6 +65,14 @@
         <section class="bottom">
             <div class="btn01">
                 <img src="/img/btn.png" alt="btn">
+                <div>
+                    <button type="button" class="btn__top">위</button>
+                    <button type="button" class="btn__right">오</button>
+                </div>
+                <div>
+                    <button type="button" class="btn__left">왼</button>
+                    <button type="button" class="btn__bottom">아래</button>
+                </div>
             </div>
             <div class="btn02">
                 <div class="btn02Wrap">
