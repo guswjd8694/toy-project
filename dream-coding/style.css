@@ -54,7 +54,7 @@ overflow: hidden;}
 
 .game-list {
     padding: 0;
-margin: 0;width: 1020px;height: 260px;position: relative;right: 0%;}
+margin: 0;height: 260px;position: relative;right: 0%;}
 
 .game-list__item {
 
@@ -180,6 +180,14 @@ width: 340px;height: 260px;float: left;position: relative;}
     margin-bottom: 10px;
 }
 
+.goal {
+    width: 60px;
+position: absolute;right: 0;top: 0;}
+
+.goal img {
+    width: 100%;
+}
+
 .mosquito {
     width: 40px;
 }
@@ -227,14 +235,14 @@ width: 340px;height: 260px;float: left;position: relative;}
 
 .btn01 {
     width: 100px;
-}
+position: relative;}
 
 .btn01 img {
     width: 100%;
 }
 
 .btn01 img:active {
-    transform: scale(-0.95);
+    /* transform: scale(-0.95); */
 }
 
 .btn02 {
@@ -296,4 +304,9 @@ width: 340px;height: 260px;float: left;position: relative;}
 button {
 }
 
+.btn__cross {position: absolute;z-index: 2;border: none;border-radius: 8px;background-color: #282828; color: #282828; cursor: pointer;}
+.btn__left {left: 0;bottom: 40.5%;width: 35px;height: 30px;}
+.btn__right {right: 0px;bottom: 40.5%;height: 30px;width: 35px;}
+.btn__top {top: 0px;left: 50%;transform: translateX(-50%);height: 35px;width: 30px;}
+.btn__bottom {bottom: 9px;left: 50%;transform: translateX(-50%);width: 30px;height: 35px;}
 
