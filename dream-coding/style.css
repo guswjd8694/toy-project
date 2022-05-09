@@ -50,15 +50,24 @@ li {
     background-color: #171717;
     margin: 20px auto;
     position: relative;
-overflow: hidden;}
+    overflow: hidden;
+}
 
 .game-list {
     padding: 0;
-margin: 0;height: 260px;position: relative;right: 0%;}
+    margin: 0;
+    height: 260px;
+    position: relative;
+    right: 0%;
+    transform: translate3d(-340px, 0px, 0px);
+}
 
 .game-list__item {
-
-width: 340px;height: 260px;float: left;position: relative;}
+    width: 340px;
+    height: 260px;
+    float: left;
+    position: relative;
+}
 
 .game-main {
     width: 100%;
@@ -73,7 +82,7 @@ width: 340px;height: 260px;float: left;position: relative;}
 }
 
 .styling .game-main {
-    background-color: rgba(151, 139, 159, 0.925);
+    background-color: rgba(151, 139, 159, 0.596);
 }
 
 .crab .game-main {
@@ -89,6 +98,7 @@ width: 340px;height: 260px;float: left;position: relative;}
     font-weight: 500;
     color: rgba(255, 255, 255, 0.9);
 }
+
 
 .game-ment {
     font-size: 12px;
@@ -310,3 +320,137 @@ button {
 .btn__top {top: 0px;left: 50%;transform: translateX(-50%);height: 35px;width: 30px;}
 .btn__bottom {bottom: 9px;left: 50%;transform: translateX(-50%);width: 30px;height: 35px;}
 
+
+
+
+
+
+
+
+
+
+
+
+.styling {
+    height: 260px;
+    position: relative;
+    bottom: 0;
+}
+
+.styling .game-main {
+    display: none;
+}
+
+.style {
+    width: 360px;
+    height: 260px;
+    position: relative;
+    background: url(./img/styling/background.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.avatar-wrap {
+    background: url(./img/styling/본체.svg) no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 80px;
+    height: 211px;
+}
+
+.avatar{
+    width: 80px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 99;
+}
+
+.avatar1 {
+    height: 30px;
+    margin-bottom: 8px;
+    z-index: 3;
+}
+
+.avatar2 {
+    height: 45px;
+    z-index: 2;
+}
+
+.avatar3 {
+    height: 70px;
+    z-index: 1;
+}
+
+.closet__list {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    display: flex;
+    left: 10px;
+    padding: 5px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+}
+
+.closet__list-head {
+    top: 10px;
+    height: 68px;
+}
+
+.closet__list-shirt {
+    top: 85px;
+    height: 66px;
+}
+
+.closet__list-pants {
+    top: 157.5px;
+    height: 89px;
+}
+
+.styling img {
+    width: 80px;
+    cursor: pointer;
+}
+
+.styling img:hover {
+    transform: scale(1.05);
+    transition: .3s;
+}
+
+
+.closet__wrap {
+    position: relative;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.closet__list img {
+    width: 60px;
+    height: auto;
+}
+
+
+.head {
+    margin-top: -2px;
+}
+
+
+.shirt {
+    top: 35%;
+}
+.shirt1 {}
+.shirt2 {}
+.shirt3 {}
+.shirt4 {}
+
+
+.pants {
+    top: 60%;
+}
+.pants1 {}
+.pants2 {}
+.pants3 {}
+.pants4 {}

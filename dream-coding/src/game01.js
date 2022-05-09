@@ -27,7 +27,7 @@ const gameBtn = document.querySelector('.startBtn'); // 게임 시작 버튼
 const resetBtn = document.querySelector('.resetBtn'); // 게임 리셋 버튼
 const gameTimer = document.querySelector('.timer'); // 타이머 보이는 부분
 const gameScore = document.querySelector('.score'); // 점수 보이는 부분
-const scoreText = '<img src="/img/mosquito.png" alt="mosquito" class="scoreBug"> : 0' // gameScore에 innerHTML로 넣어줄 html 텍스트
+const scoreText = '<img src="./img/mosquito.png" alt="mosquito" class="scoreBug"> : 0' // gameScore에 innerHTML로 넣어줄 html 텍스트
 
 let started = false; // 시작되지 않은 상태가 초기값
 let score = 0; // 점수 초기값 0점
@@ -98,7 +98,7 @@ function startGame(){ // 게임 시작 함수
     started = true; // started = true 할당
     initGame(); // initGame() 함수 실행
     showTimerAndScore(); // 시간초랑 점수에 visibility = "visible" 해주는 함수 실행
-    // startGameTimer(); //시간초 재는 함수 실행
+    startGameTimer(); //시간초 재는 함수 실행
 }
 
 function stopGame(){ // 게임 끝 함수
@@ -173,7 +173,6 @@ function addItem(className, count, imgPath){
         const item = document.createElement('img'); // <img> 요소 만듦
         item.setAttribute('class', className); // item의 class 속성 값에 className(corgi, mosquito) 넣어줌
         item.setAttribute('src', imgPath); // item의 src 속성 값에 imgPath(./img/어쩌고) 넣어줌
-        item.setAttribute('draggable', 'true')
         item.style.position = 'absolute'; // 떠서 여기저기 위치해야 하니까 포지션 앱솔루트줌 기준점은 field에
 
         const randomX = randomNumber(minWidth, fieldWidth); // 0과 필드사이즈 사이에서 랜덤 숫자 뽑아서 변수에 넣기
@@ -191,35 +190,6 @@ function randomNumber(min, max){ // 난수 만드는 함수
     return Math.random() * (max - min) + min; // 최솟값과 최댓값(포함x) 사이 임의의 숫자 만들기
 }
 
-let picked = null;
-const item = document.querySelector('.item');
-
-field.addEventListener("dragstart", e => {
-
-    picked = e.target
-
-    const pickedIndex = [...picked.parentNode.children].indexOf(e.target)
-
-    console.log(e.offsetX, e.offsetY)
-
-});
-
-field.addEventListener("dragover", e => {
-    e.preventDefault();
-});
-
-field.addEventListener("drop", e => {
-
-    picked.style.left = e.offsetX - picked.offsetWidth/2 + 'px'
-    picked.style.top = e.offsetY - picked.offsetHeight/2 + 'px'
-
-    console.log(e.offsetX, e.offsetY)
-
-    //picked가 field가 아니라 요소 위에 놓여지면 다른데감
-
-});
-
-
 
 field.addEventListener('click', onFieldClick); // field를 클릭하면 onFieldClick 함수 실행
 
@@ -230,16 +200,16 @@ function onFieldClick(e){
     const target = e.target; // 내가 클릭한 타겟
 
     if (target.matches('.mosquito')){ // target에 .mosquito가 있는지 확인하고 ture / false 반환
-        // target.remove(); // 모기 있으면 target 지워
-        // score++; // 그리고 점수에 +1 하고
+        target.remove(); // 모기 있으면 target 지워
+        score++; // 그리고 점수에 +1 하고
         updateScoreBoard(); // 점수판 업데이트 해주는 함수 실행
 
         if(score === BUG_COUNT){ // 그리고 점수랑 벌레 갯수가 같아지면
-            // finishGame(true); // finishGame함수에 true 인자 넘김
+            finishGame(true); // finishGame함수에 true 인자 넘김
         }
     } else if (target.matches('.corgi')){ // .corgi 유무에 true / false 반환
         stopGameTimer(); // 코기 있으면 게임타이머 멈추는 함수 실행하고
-        // finishGame(false); // 게임끝 함수에 false 넘겨줌
+        finishGame(false); // 게임끝 함수에 false 넘겨줌
     }
 }
 
