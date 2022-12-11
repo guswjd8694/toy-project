@@ -2011,3 +2011,22 @@ const countries = [
       currency: 'Botswana pula',
     },
 ];
+
+const languages = [];
+
+countries.map((country) => {
+    languages.push(...country.languages)
+});
+
+const redundantObj = languages.reduce((acc, cur) => {
+    acc[cur] = (acc[cur] || 0) + 1
+    return acc
+}, {})
+
+const redundantArr = Object.keys(redundantObj).map((key) => [key, redundantObj[key]])
+const max = redundantArr.sort((a, b) => b[1] - a[1])
+
+
+
+// console.log([...new Set(languages)])
+// console.log(max[0])
