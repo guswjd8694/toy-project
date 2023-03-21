@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --origin: 0px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #d64911;
+            height: 5000px;
+        }
+        .circle {
+            position: fixed;
+            top: 10%;
+            right: 5%;
+            display: flex;
+            justify-content: center;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        .text {
+            font-size: 28px;
+            color: rgb(255, 240, 154);
+            font-weight: bold;
+            transform-origin: 0 var(--origin);
+            animation: animate 15s linear infinite;
+        }
+        span {
+            position: absolute;
+            transform-origin: 0 var(--origin);
+        }
+
+        @keyframes animate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="text">
+            <p>ILLWOL - SUNSET - BEACH - JEJU - PIZZA - YAMMY - </p>
+        </div>
+    </div>
+</body>
+<script>
+    const text = document.querySelector('.text p');
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+    console.log(text.textContent)
+
+    const ele = document.querySelectorAll('span');
+    const calc = 360 / ele.length;
+    const circle = document.querySelector('.circle');
+    const circleW = document.querySelector('.circle').offsetWidth;
+    const origin = circleW / 2;
+
+    document.documentElement.style.setProperty('--origin', `${origin}px`);
+
+    for(let i=1; i<ele.length; i++){
+        ele[i].style.transform = "rotate(" + i * calc + "deg)";
+    };
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        circle.style.transform = "rotate(" + scrollY + "deg)";
+        
+    });
+
+</script>
+</html>

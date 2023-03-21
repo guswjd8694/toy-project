@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Text Scrolling</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #363640;
+            width: 100vw;
+            height: 5000px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 32px;
+        }
+
+        .info {
+            height: 200px;
+        }
+
+        .flow {
+            color: #fff;
+            font-size: 60px;
+            white-space: nowrap;
+            font-family: 'Helvetica Nenu';
+            font-weight: 400;
+            position: relative;
+            height: 144px;
+        }
+
+        .flow-item {
+            font-size: 0;
+        }
+
+        .flow-item.down {
+            position: absolute;
+            right: 0;
+        }
+
+        .line {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+        }
+
+        .top,
+        .bottom {
+            font-size: 48px;
+        }
+
+
+
+        /*  ------------------------------------------------------------------------------------  */
+
+
+
+
+        .text01 .top {
+            animation: left 18s infinite linear;
+            display: inline-block;
+            transition: .3s; 
+        }
+
+        .text01 .bottom {
+            animation: right 18s infinite linear;
+            display: inline-block;
+        }
+
+
+
+        /*  ------------------------------------------------------------------------------------  */
+
+
+
+        .text02 .info {
+            height: 500px;
+        }
+
+
+        .text02 .top {
+            display: inline-block;
+            /* transform: translate3d(var(--left-flow), 0, 0); */
+
+        }
+
+        .text02 .bottom {
+            display: inline-block;
+            /* transform: translate3d(var(--right-flow), 0, 0); */
+        }
+
+
+
+        /*  ------------------------------------------------------------------------------------  */
+
+
+
+
+        .text03 .info {
+            height: 500px;
+        }
+
+        .text03 .top {
+            animation: left 18s infinite linear;
+            display: inline-block;
+        }
+
+        .text03 .bottom {
+            animation: right 18s infinite linear;
+            display: inline-block;
+        }
+
+
+
+        /*  ------------------------------------------------------------------------------------  */
+
+
+
+        :root {
+            --left-flow: 0px;
+            --right-flow: 0px;
+        }
+
+        @keyframes left {
+            0% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            100% {
+                transform: translate3d(var(--left-flow), 0, 0);
+            }
+        }
+
+        @keyframes right {
+            0% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            100% {
+                transform: translate3d(var(--right-flow), 0, 0)
+            }
+        }
+
+
+
+        /*  ------------------------------------------------------------------------------------  */
+
+
+
+        .space {
+            height: 800px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .cover {
+            width: 100vw;
+            display: flex;
+        }
+
+        .cover.bottom {
+            justify-content: flex-end;
+        }
+
+
+        p {
+            color: #fff;
+            font-size: 48px;
+            white-space: nowrap;
+            font-family: 'Helvetica Nenu';
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text01">
+        <div class="info"></div>
+        <h2>01. 자동으로 움직이기^_^</h2>
+        <div class="flow">
+            <div class="flow-item up">
+                <div class="top">
+                    We're your fave, <span class="line">fashioning new trends and pioneering digital experiences
+                        you'll love.&nbsp;</span>
+                </div>
+                <div class="top">
+                    We're your fave, <span class="line">fashioning new trends and pioneering digital experiences
+                        you'll love.&nbsp;</span>
+                </div>
+                <div class="top">
+                    We're your fave, <span class="line">fashioning new trends and pioneering digital experiences
+                        you'll love.&nbsp;</span>
+                </div>
+            </div>
+            <div class="flow-item down">
+                <div class="bottom">
+                    <span class="line">We're your fave, fashioning new trends and pioneering digital
+                        experiences</span> you'll love.&nbsp;
+                </div>
+                <div class="bottom">
+                    <span class="line">We're your fave, fashioning new trends and pioneering digital
+                        experiences</span> you'll love.&nbsp;
+                </div>
+                <div class="bottom">
+                    <span class="line">We're your fave, fashioning new trends and pioneering digital
+                        experiences</span> you'll love.&nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container text02">
+        <div class="info"></div>
+        <h2>02. 스크롤 하면 움직이기^_^</h2>
+        <div class="flow">
+            <div class="flow-item up">
+                <div class="top">
+                    <span class="line">We're your fave,</span> fashioning new trends and pioneering digital experiences
+                    you'll love.&nbsp;
+                </div>
+                <div class="top">
+                    <span class="line">We're your fave,</span> fashioning new trends and pioneering digital experiences
+                    you'll love.&nbsp;
+                </div>
+                <div class="top">
+                    <span class="line">We're your fave,</span> fashioning new trends and pioneering digital experiences
+                    you'll love.&nbsp;
+                </div>
+            </div>
+            <div class="flow-item down">
+                <div class="bottom">
+                    We're your fave, fashioning new trends and pioneering digital
+                    experiences <span class="line">you'll love.&nbsp;</span>
+                </div>
+                <div class="bottom">
+                    We're your fave, fashioning new trends and pioneering digital
+                    experiences <span class="line">you'll love.&nbsp;</span>
+                </div>
+                <div class="bottom">
+                    We're your fave, fashioning new trends and pioneering digital
+                    experiences <span class="line">you'll love.&nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text03">
+        <div class="info"></div>
+        <h2>03. 자동인데 스크롤 하면 빨라지기^_^</h2>
+        <div class="flow">
+            <div class="flow-item up">
+                <div class="top">
+                    We're your fave, <span class="line">fashioning new trends and pioneering digital experiences
+                        you'll love.&nbsp;</span>
+                </div>
+                <div class="top">
+                    We're your fave, <span class="line">fashioning new trends and pioneering digital experiences
+                        you'll love.&nbsp;</span>
+                </div>
+                <div class="top">
+                    We're your fave, <span class="line">fashioning new trends and pioneering digital experiences
+                        you'll love.&nbsp;</span>
+                </div>
+                <div class="top">
+                    We're your fave, <span class="line">fashioning new trends and pioneering digital experiences
+                        you'll love.&nbsp;</span>
+                </div>
+            </div>
+            <div class="flow-item down">
+                <div class="bottom">
+                    <span class="line">We're your fave, fashioning new trends and pioneering digital
+                        experiences</span> you'll love.&nbsp;
+                </div>
+                <div class="bottom">
+                    <span class="line">We're your fave, fashioning new trends and pioneering digital
+                        experiences</span> you'll love.&nbsp;
+                </div>
+                <div class="bottom">
+                    <span class="line">We're your fave, fashioning new trends and pioneering digital
+                        experiences</span> you'll love.&nbsp;
+                </div>
+                <div class="bottom">
+                    <span class="line">We're your fave, fashioning new trends and pioneering digital
+                        experiences</span> you'll love.&nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="space"></div>
+    <div class="center">
+        <h2>04. 영상 따라하기</h2>
+    </div>
+    <div class="cover top">
+        <p class="first-parallel"></p>
+    </div>
+    <div class="cover bottom">
+        <p class="second-parallel"></p>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    const topW = document.querySelector('.top').offsetWidth;
+    const botW = document.querySelector('.bottom').offsetWidth;
+    const text02 = $(".text02 .flow-item");
+
+    console.log("text02 offsetTop : " + text02.offset().top)
+    console.log("text width : " + topW)
+
+
+    document.documentElement.style.setProperty('--left-flow', `-${topW}px`);
+    document.documentElement.style.setProperty('--right-flow', `${botW}px`);
+
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        console.log(scrollTop)
+
+
+        document.querySelector('.text02 .flow-item.up').style.transform = "translateX(" + -scrollTop + "px)";
+        document.querySelector('.text02 .flow-item.down').style.transform = "translateX(" + scrollTop + "px)";
+
+        document.querySelector('.text03 .flow-item.up').style.transform = "translateX(" + -scrollTop + "px)";
+        document.querySelector('.text03 .flow-item.down').style.transform = "translateX(" + scrollTop + "px)";
+    });
+
+
+    const pTag1 = document.querySelector('.first-parallel');
+    const pTag2 = document.querySelector('.second-parallel');
+
+    const textArr1 = "We're your fave, fashioning new trends and pioneering digital experiences you'll love.".split(' ')
+    const textArr2 = "We're your fave, fashioning new trends and pioneering digital experiences you'll love.".split(' ')
+
+    function initTexts(element, textArray) {
+        textArray.push(...textArray)
+        console.log(textArray)
+        for (let i = 0; i < textArray.length; i++) {
+            element.innerText += `${textArray[i]}\u00A0`
+        }
+    };
+    initTexts(pTag1, textArr1);
+    initTexts(pTag2, textArr2);
+
+
+
+
+
+
+    let count1 = 0;
+    let count2 = 0;
+
+    function marqueeText(count, element, direction) {
+        if (count > element.scrollWidth / 2) {
+            element.style.transform = `translateX(0)`
+            count = 0
+        };
+        element.style.transform = `translateX(${count * direction}px)`
+        return count;
+    };
+
+    function animate() {
+        count1++;
+        count2++;
+
+        count1 = marqueeText(count1, pTag1, -1)
+        count2 = marqueeText(count2, pTag2, 1)
+
+        window.requestAnimationFrame(animate);
+    };
+    animate();
+
+    window.addEventListener('scroll', () => {
+        event.preventDefault;
+
+        count1 += 10;
+        count2 += 10;
+    });
+</script>
+
+</html>

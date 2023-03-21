@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Text Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #363640;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 2000px;
+        }
+        .circle {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            margin: 300px 80px;
+        }
+        .circle01 .text01 {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            animation: rotate 10s linear infinite;
+        }
+
+        .text01 span {
+            position: absolute;
+            left: 50%;
+            transform-origin: 0 var(--origin);
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        @keyframes rotate {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+
+
+        :root {
+            --origin: 0px;
+            --scrolling: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="circle circle01">
+    <div class="text01">
+        <p>* experiences * we * create * better</p>
+    </div>
+</div>
+
+</body>
+
+<script>
+    const text = document.querySelector('.text01 p');
+
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+    const ele = document.querySelectorAll('span');
+    const textCont = ele.length;
+    const calc = 360 / textCont;
+    const circle = document.querySelector('.circle');
+    const circleW = circle.offsetWidth;
+    const piece = document.querySelector('span');
+    const origin = circleW / 2;
+
+    document.documentElement.style.setProperty('--origin', `${origin}px`);
+
+    for(var i = 1; i<textCont; i++){
+        ele[i].style.transform = "rotate(" + i * calc + "deg)";
+    }
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const scrollClac = scrollY / 360;
+
+        console.log(scrollY)
+
+        // document.documentElement.style.setProperty('--scrolling', `${scrollY}deg`);
+
+        document.querySelector('.circle').style.transform = "rotate(" + scrollY + "deg)";
+    });
+
+
+</script>
+</html>
